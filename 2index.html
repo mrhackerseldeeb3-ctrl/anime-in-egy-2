@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنمي إيجيبت هب | دليل متاجر الأنمي في مصر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #ff6b9d;
+            --secondary-color: #33ccff;
+            --dark-bg: #12001f;
+            --card-bg: rgba(20, 25, 60, 0.9);
+            --text-light: #ffffff;
+            --text-gray: #b8b8b8;
+            --accent-yellow: #ffea00;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--dark-bg);
+            background-image: url("https://i.ibb.co/fYRNLJbC/Inexpressive-Kashiwada-and-Expressive-Oota-Anime-Girl.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(30, 5, 53, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--accent-yellow); text-shadow: 0 0 10px rgba(255, 234, 0, 0.3); }
+        .logo span { color: var(--primary-color); }
+
+        .hero {
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(18, 0, 31, 0.6);
+            padding: 2rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; text-shadow: 2px 2px var(--primary-color); }
+
+        .btn-neon {
+            padding: 12px 35px;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--primary-color);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .btn-neon:hover { background: var(--primary-color); color: #fff; box-shadow: 0 0 30px var(--primary-color); }
+
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .store-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(100, 110, 255, 0.2);
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+        .store-card:hover { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3); }
+
+        .store-image { height: 180px; position: relative; overflow: hidden; background: #222; }
+        .store-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; display: block; }
+        .store-card:hover .store-image img { transform: scale(1.1); }
+
+        .store-badge {
+            position: absolute; top: 10px; right: 10px;
+            background: var(--primary-color); color: #fff;
+            padding: 4px 10px; border-radius: 5px; font-weight: bold; font-size: 0.7rem; z-index: 2;
+        }
+
+        .store-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; text-align: center; }
+        .store-info h3 { color: var(--secondary-color); margin-bottom: 0.8rem; font-size: 1.3rem; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .store-description { font-size: 0.85rem; color: #d1d5ff; margin-bottom: 1.5rem; flex-grow: 1; }
+
+        .btn-store {
+            display: block; text-align: center; padding: 12px;
+            background: linear-gradient(45deg, var(--primary-color), #a855f7);
+            color: #fff; font-weight: bold; border-radius: 8px; transition: 0.3s;
+            text-decoration: none;
+        }
+        .btn-store:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        footer { background: rgba(10, 0, 18, 0.9); padding: 3rem; text-align: center; margin-top: 5rem; border-top: 1px solid rgba(255, 107, 157, 0.2); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Anime<span>Egypt</span> Hub</div>
+    </header>
+
+    <section class="hero">
+        <h1>متاجر الأنمي في مصر <i class="fas fa-heart" style="color: var(--primary-color);"></i></h1>
+        <p>دليلك الشامل من أفضل وجهات الأوتاكو المصري</p>
+        <a href="#stores" class="btn-neon">استكشف المتاجر</a>
+    </section>
+
+    <section class="container" id="stores">
+        <div class="stores-grid">
+            
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Linktree</span>
+                    <img src="https://i.ibb.co/zWbz6Jd6/Whats-App-Image-2026-02-04-at-9-09-00-AM-3.jpg" alt="Fuji Store">
+                </div>
+                <div class="store-info">
+                    <h3>Fuji Store</h3>
+                    <p class="store-description">أحدث الشخصيات والأكسسوارات الأنمي في مصر.</p>
+                    <a href="https://linktr.ee/ahmedaboalith" target="_blank" class="btn-store"><i class="fab fa-link"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/mFMtbbQz/Whats-App-Image-2026-02-04-at-9-08-59-AM-4.jpg" alt="KAWAII">
+                </div>
+                <div class="store-info">
+                    <h3>KAWAII Store</h3>
+                    <p class="store-description">عالم الأنمي الشامل لكل عشاق هذا الفن الرائع.</p>
+                    <a href="https://www.facebook.com/share/1D9UDEKbCs/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">TikTok</span>
+                    <img src="https://i.ibb.co/8LdKkMWv/images.jpg" alt="Heroszone">
+                </div>
+                <div class="store-info">
+                    <h3>Heroszone</h3>
+                    <p class="store-description">منتجات حصرية من عالم الأنمي والأبطال الخارقين.</p>
+                    <a href="https://www.tiktok.com/@heroszone" target="_blank" class="btn-store"><i class="fab fa-tiktok"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Website</span>
+                    <img src="https://i.ibb.co/1Gz20K9G/2026-02-08.png" alt="Anime Empire">
+                </div>
+                <div class="store-info">
+                    <h3>Anime Empire</h3>
+                    <p class="store-description">إمبراطورية شاملة لكل ما يخص عالم الأنمي والمانجا.</p>
+                    <a href="https://sllr.co/animeempire" target="_blank" class="btn-store"><i class="fas fa-shopping-cart"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/FqqR7vvd/Whats-App-Image-2026-02-04-at-9-09-00-AM-1.jpg" alt="Attack Store">
+                </div>
+                <div class="store-info">
+                    <h3>Attack Store</h3>
+                    <p class="store-description">متجر هجوم العمالقة وأشهر مسلسلات الأنمي العالمية.</p>
+                    <a href="https://www.facebook.com/share/1A7MxV7HwR/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/F4GhsT96/Whats-App-Image-2026-02-04-at-9-08-59-AM-1.jpg" alt="One For All">
+                </div>
+                <div class="store-info">
+                    <h3>One For All</h3>
+                    <p class="store-description">متجر متخصص في My Hero Academia والأنمي الشهير.</p>
+                    <a href="https://www.facebook.com/share/1FgeL4dLLk/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/9HfnHYFm/Whats-App-Image-2026-02-04-at-9-08-59-AM-2.jpg" alt="THE ANIME HOUSE">
+                </div>
+                <div class="store-info">
+                    <h3>THE ANIME HOUSE</h3>
+                    <p class="store-description">بيت الأنمي الشامل لكل عشاق ومتابعي هذا العالم.</p>
+                    <a href="https://www.facebook.com/share/182HRTx9a2/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Website</span>
+                    <img src="https://i.ibb.co/RTHv81Cz/Whats-App-Image-2026-02-04-at-9-08-59-AM-3.jpg" alt="Anime Home">
+                </div>
+                <div class="store-info">
+                    <h3>Anime Home</h3>
+                    <p class="store-description">أنمي هوم – بيت عشاق الأنمي والمانجا في مصر!</p>
+                    <a href="https://anime-home.com/" target="_blank" class="btn-store"><i class="fas fa-globe"></i> زيارة الموقع</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Website</span>
+                    <img src="https://i.ibb.co/Ngb53yFP/Whats-App-Image-2026-02-04-at-9-09-00-AM-2.jpg" alt="Asia Anime Store">
+                </div>
+                <div class="store-info">
+                    <h3>ASIA ANIME STORE</h3>
+                    <p class="store-description">متجر لبيع منتجات الأنمي والمنتجات الآسيوية المتنوعة.</p>
+                    <a href="https://www.asiaanimestore.com/" target="_blank" class="btn-store"><i class="fab fa-link"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/MkHyFxCt/Whats-App-Image-2026-02-04-at-9-09-00-AM.jpg" alt="Yuki Anime Store">
+                </div>
+                <div class="store-info">
+                    <h3>YUKI ANIME STORE</h3>
+                    <p class="store-description">متجر يوكي لبيع الأنمي الياباني الأصلي والفيجرز.</p>
+                    <a href="https://www.facebook.com/share/1BEh4yWEhu/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/zV4v5Vwv/Whats-App-Image-2026-02-09-at-10-23-25-PM-1.jpg" alt="MK store">
+                </div>
+                <div class="store-info">
+                    <h3>MK Store</h3>
+                    <p class="store-description">Official workshop for anime & games products in Egypt.</p>
+                    <a href="https://www.facebook.com/share/1HVjDtsw3k/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/zWYqcPw7/Whats-App-Image-2026-02-09-at-10-23-25-PM.jpg" alt="SUGOI STORE">
+                </div>
+                <div class="store-info">
+                    <h3>SUGOI STORE</h3>
+                    <p class="store-description">Bringing you the most SUGOI anime merch online in Egypt 📌.</p>
+                    <a href="https://www.facebook.com/share/187PfaRKvi/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/Vc6z46WM/295379648-108809431916370-4646100858459699781-n.jpg" alt="Anime Slayer">
+                </div>
+                <div class="store-info">
+                    <h3>Anime Slayer Shop</h3>
+                    <p class="store-description">Mobile cases, Notebooks, Medals & more for all Otakus.</p>
+                    <a href="https://www.facebook.com/share/1GacczXkFU/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/CpxMm6Jt/Whats-App-Image-2026-02-09-at-10-23-27-PM.jpg" alt="Tanjiro store">
+                </div>
+                <div class="store-info">
+                    <h3>Tanjiro Store</h3>
+                    <p class="store-description">أفضل ملابس الأنمي بجودة عالية وتصميمات حسب الطلب.</p>
+                    <a href="https://www.facebook.com/share/16CgjkFamU/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Facebook</span>
+                    <img src="https://i.ibb.co/HLkx0qjd/Whats-App-Image-2026-02-09-at-10-23-26-PM.jpg" alt="Kawaii Online">
+                </div>
+                <div class="store-info">
+                    <h3>Kawaii Online Store</h3>
+                    <p class="store-description">هتلاقي عندنا كل ما هو كيوت ومنتجات أنمي رائعة 🙈💖.</p>
+                    <a href="https://www.facebook.com/share/1D9UDEKbCs/" target="_blank" class="btn-store"><i class="fab fa-facebook-f"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="store-image">
+                    <span class="store-badge">Website</span>
+                    <img src="https://i.ibb.co/sJptksPM/627243831-122127647258998314-1628706870204964463-n.jpg" alt="Anime Dokan">
+                </div>
+                <div class="store-info">
+                    <h3>Anime Dokan</h3>
+                    <p class="store-description">AnimeDokan ⚡ Made for otakus. Join the fandom now!</p>
+                    <a href="http://animedokan.com/" target="_blank" class="btn-store"><i class="fas fa-shopping-bag"></i> زيارة المتجر</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">Anime<span>Egypt</span> Hub</div>
+        <p>© 2026 جميع الحقوق محفوظة | مصمم لعشاق الأنمي في مصر <i class="fas fa-heart" style="color: var(--primary-color);"></i></p>
+    </footer>
+
+</body>
+</html>
