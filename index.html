@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مانجا هب مصر | MANGA HUB EG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --manga-black: #1a1a1a;
+            --manga-white: #ffffff;
+            --neon-accent: #ff2d75;
+            --action-blue: #00d2ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #eee url('77.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--manga-black);
+            overflow-x: hidden;
+        }
+
+        .action-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 20px, rgba(0,0,0,0.03) 21px, rgba(0,0,0,0.03) 22px);
+            z-index: -1;
+            animation: zoomLines 10s linear infinite;
+        }
+
+        @keyframes zoomLines {
+            from { transform: scale(1); }
+            to { transform: scale(1.5); }
+        }
+
+        header {
+            background: var(--manga-black);
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+            border-bottom: 8px solid var(--neon-accent);
+            transform: skewY(-2deg);
+            margin-top: -10px;
+            box-shadow: 0 10px 0 rgba(0,0,0,0.2);
+        }
+
+        .logo { 
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 2.5rem;
+            transform: skewY(2deg);
+            text-shadow: 4px 4px 0 var(--neon-accent);
+        }
+
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            background: var(--manga-black);
+            color: white;
+            padding: 10px 30px;
+            transform: rotate(-3deg);
+            box-shadow: 10px 10px 0 var(--action-blue);
+            margin-bottom: 20px;
+        }
+
+        .container { max-width: 1200px; margin: auto; padding: 40px; }
+
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .store-card {
+            background: white;
+            border: 4px solid black;
+            box-shadow: 8px 8px 0 black;
+            transition: .3s;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .store-card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 12px 12px 0 var(--neon-accent);
+        }
+
+        .store-image { height: 200px; overflow: hidden; border-bottom: 4px solid black; position: relative; }
+        .store-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .store-card:hover img { filter: grayscale(0%); transform: scale(1.1); }
+
+        .manga-bubble {
+            position: absolute; bottom: 10px; right: 10px;
+            background: white; border: 3px solid black;
+            padding: 5px 12px; border-radius: 50%;
+            font-weight: 900; z-index: 5; transform: rotate(-10deg);
+        }
+
+        .store-info { padding: 20px; }
+        .btn-store {
+            display: block; background: black; color: white;
+            text-align: center; padding: 12px; text-decoration: none;
+            font-weight: bold; margin-top: 15px; clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+            transition: 0.3s;
+        }
+        .btn-store:hover { background: var(--neon-accent); }
+
+        /* ===== رسالة الترحيب ===== */
+        .welcome-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.9);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10000;
+        }
+
+        .message-box {
+            background: white; width: 90%; max-width: 500px;
+            padding: 40px; border: 8px solid var(--manga-black);
+            box-shadow: 15px 15px 0 var(--neon-accent);
+            text-align: center;
+        }
+
+        .ok-button {
+            background: var(--manga-black); color: white;
+            border: none; padding: 15px 50px; font-size: 1.2rem;
+            font-weight: 900; cursor: pointer; transition: 0.3s;
+            box-shadow: 5px 5px 0 var(--action-blue);
+        }
+
+        /* ===== FOOTER & CONTACT ===== */
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 50px;
+            border-top: 10px solid var(--action-blue);
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-accent);
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .contact-email {
+            display: block;
+            margin-top: 20px;
+            color: var(--action-blue);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #bottomNote {
+            background: white; padding: 60px 20px;
+            border-top: 10px solid var(--manga-black);
+            margin-top: 50px; display: none;
+        }
+
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-thumb { background: black; border: 3px solid white; }
+    </style>
+</head>
+<body>
+
+<div id="welcomeOverlay" class="welcome-overlay">
+    <div class="message-box">
+        <h2>إعلان هام 📢</h2>
+        <p>أهلاً بك في "مانجا هب مصر". يرجى العلم أننا دليل إرشادي فقط لمتاجر الأنمي، وللتحديث أو التواصل يمكنك استخدام الروابط في أسفل الموقع.</p>
+        <button class="ok-button" id="okBtn">فهمت، استمرار!</button>
+    </div>
+</div>
+
+<div class="action-bg"></div>
+
+<header>
+    <div class="logo">MANGA EGYPT HUB 2026</div>
+</header>
+
+<section class="hero">
+    <h1>اقرأ.. تسوق.. عِش!</h1>
+    <div style="background: var(--neon-accent); color: white; padding: 5px 20px; transform: rotate(2deg); font-weight: 900;">
+        أكبر دليل متاجر أنمي في مصر
+    </div>
+</section>
+
+<section class="container">
+    <div class="stores-grid" id="storesGrid"></div>
+</section>
+
+<section id="bottomNote">
+    <div style="max-width:900px;margin:auto;">
+        <h2 style="color: var(--neon-accent); margin-bottom: 20px;">📝 ملحوظة هامة للتحديث</h2>
+        <p>إذا كنت صاحب متجر وتريد تحديث بياناتك أو إضافة متجرك، يرجى التواصل معنا عبر البريد الإلكتروني الموضح في الأسفل.</p>
+        <p style="font-weight:bold; color:var(--action-blue); margin-top:25px;">
+            هدفنا دائماً تطوير المجتمع الخاص بالأنمي في مصر ❤️
+        </p>
+    </div>
+</section>
+
+<footer>
+    <h2 style="font-family: 'Reem Kufi'; margin-bottom: 10px;">تواصل معنا للتحديث</h2>
+    <p style="margin-bottom: 25px; opacity: 0.8;">MANGA HUB EGYPT - THE NEXT GENERATION</p>
+    
+    <div class="social-links">
+        <a href="https://www.instagram.com/maram999h?igsh=aDRyeWNqZXJkb2tq" target="_blank">
+            <i class="fab fa-instagram fa-3x"></i>
+        </a>
+        
+        <a href="mailto:mrhackerseldeeb3@gmail.com">
+            <i class="fas fa-envelope fa-3x"></i>
+        </a>
+    </div>
+
+    <a href="mailto:mrhackerseldeeb3@gmail.com" class="contact-email">
+        mrhackerseldeeb3@gmail.com
+    </a>
+
+    <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+    const stores = [
+        { file: "anime dokan.png", name: "Anime Dokan", desc: "أجمل منتجات الأنمي في مكان واحد", page: "dokan.html" },
+        { file: "anime Empire.png", name: "Anime Empire", desc: "إمبراطورية الأنمي والمانجا", page: "epire.html" },
+        { file: "anime stop.jpeg", name: "Anime Stop", desc: "محطتك الأولى لكل جديد", page: "stop.html" },
+        { file: "asia.jpg", name: "Asia", desc: "إكسسوارات وتذكارات يابانية", page: "asia.html" },
+        { file: "attack.jpg", name: "Attack Store", desc: "قوة الأنمي بين يديك", page: "attack.html" },
+        { file: "fuji.jpg", name: "Fuji", desc: "منتجات مستوحاة من جبل فوجي", page: "fuji.html" },
+        { file: "Heroszone.jpeg", name: "HeroZene", desc: "لكل بطل معداته", page: "herostore.html" },
+        { file: "home.jpg", name: "Home Anime", desc: "ديكورات منزلية بأنمي", page: "home.html" },
+        { file: "house.jpg", name: "House Japan", desc: "لمسة يابانية في بيتك", page: "house.html" },
+        { file: "japan.jpg", name: "Japan Souvenir", desc: "هدايا تذكارية من اليابان", page: "japan.html" },
+        { file: "Kat.jpg", name: "Katana", desc: "أكواب وملصقات أنمي", page: "Kat.html" },
+        { file: "Kawaii3.jpg", name: "Kawaii World", desc: "عالم الكيوت واللطافة", page: "Kawaii3.html" },
+        { file: "manga2.jpeg", name: "Manga Plus", desc: "آخر إصدارات المانجا", page: "manga.html" },
+        { file: "one.jpg", name: "One", desc: "قطعة واحدة لكل فان", page: "one.html" },
+        { file: "sokona.jpg", name: "Sokan", desc: "سيوف وأسلحة الأنمي", page: "Sokana.html" },
+        { file: "tanjiro.jpg", name: "Teniro", desc: "شخصياتك المفضلة هنا", page: "tanjiro.html" },
+        { file: "yuko.jpeg", name: "Yuko", desc: "موديلات حصرية مستوردة", page: "Yuki.html" }
+    ];
+
+    const grid = document.getElementById('storesGrid');
+    stores.forEach((store, index) => {
+        const card = document.createElement('div');
+        card.className = 'store-card';
+        card.innerHTML = `
+            <div class="store-image">
+                <div class="manga-bubble">${index + 1}</div>
+                <img src="${store.file}" alt="${store.name}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
+            </div>
+            <div class="store-info">
+                <h3>${store.name}</h3>
+                <p>${store.desc}</p>
+                <a href="${store.page}" class="btn-store">تصفح الآن <i class="fas fa-arrow-left"></i></a>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const overlay = document.getElementById("welcomeOverlay");
+        const okBtn = document.getElementById("okBtn");
+        const bottomNote = document.getElementById("bottomNote");
+
+        okBtn.addEventListener("click", function() {
+            overlay.style.display = "none";
+            bottomNote.style.display = "block";
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        document.querySelectorAll('.store-card').forEach(card => observer.observe(card));
+    });
+</script>
+
+</body>
+</html>
